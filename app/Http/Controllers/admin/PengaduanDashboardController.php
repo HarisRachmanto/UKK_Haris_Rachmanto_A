@@ -12,21 +12,29 @@ class PengaduanDashboardController extends Controller
 {
     public function index()
     {
-        // $data = Pengaduan::where('pengaduan.*','tanggapan.id_tanggapan','=','pengaduan.id_pengaduan');
-        // $data = DB::table('pengaduans')
-        // ->join('tanggapans', 'tanggapans.id_tanggapan', '=', 'pengaduans.id_pengaduan')
-        // ->select('')
-        // ->get();
-
-        $data = Pengaduan::select('pengaduan.*','tanggapans.tanggapan')->leftjoin('pengaduans','=','tanggapans.id_tanggapan','=','pengaduans.id_pengaduan');
+        $data = Pengaduan::latest()->get();
         return view('admin.Pengaduan.index', compact('data'));
     }
 
-    public function destroy($id_pengaduan)
+    public function update($id_pengaduan)
     {
-        $validate = Pengaduan::where('id_pengaduan', $id_pengaduan);
+        $data = Pengaduan::findOrFail($id_pengaduan);
+        if ($data->status == 0) {
+            $status = 'proses';
+        } else {
+            $status = 'proses';
+        }
+
+        $data = Pengaduan::where('id_pengaduan', $id_pengaduan)->update(['status' => $status]);
+        return redirect()->route('dashboardpengaduan');
+    }
+
+    public function destroy($id)
+    {
+        $validate = Pengaduan::findOrFail($id);
         $validate->delete();
-        return redirect('dashboardpengaduan');
+
+        return redirect()->route('dashboardpengaduan');
     }
 
     public function cetak($id_pengaduan)

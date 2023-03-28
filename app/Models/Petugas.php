@@ -11,6 +11,6 @@ class Petugas extends Authenticatable
 {
     use HasFactory, Notifiable;
     protected $table = 'petugas';
-    public $primarykey = 'id_petugas';
+    public $primaryKey = 'id_petugas';
     protected $fillable = ['nama_petugas','username','password','telp','level'];
 }

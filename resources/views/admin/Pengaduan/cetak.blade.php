@@ -19,15 +19,13 @@
             padding: 8px;
             text-align: left;
         }
-
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
     </style>
 </head>
 
 <body>
+    <center>
+        <h2>Data Pengaduan Masyarakat</h2>
+    </center>
         <table class="table table-bordered">
             <thead>
                 <tr>

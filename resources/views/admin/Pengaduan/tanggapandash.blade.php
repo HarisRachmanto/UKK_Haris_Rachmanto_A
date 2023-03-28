@@ -120,7 +120,7 @@
                     <div class="mb-3">
                         <label for="html5-date-input" class="col col-form-label">Tanggal</label>
                         <div class="col">
-                          <input class="form-control" type="date" value="" id="html5-date-input" name="tgl_tanggapan"/>
+                          <input class="form-control" type="date" value="" id="html5-date-input" name="tgl_tanggapan" required/>
                         </div>
                       </div>
                       <div class="mb-3">
@@ -130,8 +130,9 @@
                           class="form-control"
                           id="nik"
                           name="tanggapan"
-                          placeholder="Isi laporan"
+                          placeholder="Isi tanggapan"
                           autofocus
+                          required
                         />
                       </div>
                     <button class="btn btn-primary d-grid w-100" type="submit">Kirim</button>

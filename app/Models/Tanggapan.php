@@ -9,6 +9,6 @@ class Tanggapan extends Model
 {
     use HasFactory;
     protected $table = 'tanggapans';
-    public $primarykey = 'id_tanggapan';
+    public $primaryKey = 'id_tanggapan';
     protected $fillable = ['id_pengaduan','tgl_tanggapan','tanggapan','id_petugas'];
 }

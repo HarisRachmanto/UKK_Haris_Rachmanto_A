@@ -48,8 +48,9 @@ Route::get('dashboardmasyarakat', [MasyarakatDashboardController::class, 'index'
 Route::delete('dashboardmasyarakat/delete/{id_pengaduan}', [MasyarakatDashboardController::class, 'destroy'])->name('dashboardmasyarakat.delete');
 
 Route::get('dashboardpengaduan', [PengaduanDashboardController::class, 'index'])->name('dashboardpengaduan');
-Route::get('dashboardpengaduan/cetak/{id_pengaduan}', [PengaduanDashboardController::class, 'index'])->name('cetak');
-Route::get('dashboardpengaduan/delete/{id_pengaduan}', [PengaduanDashboardController::class, 'destroy'])->name('dashboardpengaduan.delete');
+Route::get('dashboardpengaduan/update/{id_pengaduan}', [PengaduanDashboardController::class, 'update'])->name('status');
+Route::get('dashboardpengaduan/cetak/{id_pengaduan}', [PengaduanDashboardController::class, 'cetak'])->name('cetak');
+Route::delete('dashboardpengaduan/delete/{id_pengaduan}', [PengaduanDashboardController::class, 'destroy'])->name('dashboardpengaduan.delete');
 
 
 Route::get('tanggapandashboard/{id_pengaduan}', [TanggapanDashboardController::class, 'index'])->name('tanggapandashboard');
