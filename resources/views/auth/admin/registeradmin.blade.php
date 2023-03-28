@@ -90,12 +90,13 @@
                     name="nama_petugas"
                     placeholder="Masukan nama anda"
                     autofocus
+                    required
                   />
                 </div>
                 <div class="mb-3">
                   <label for="no" class="form-label">No telepon</label>
                   <input placeholder="Masukan Nomer Telepon Anda" autofocus type="number" class="form-control"
-                      name="telp" id="telp" required="" />
+                      name="telp" id="telp" required="" required />
               </div>
                 <div class="mb-3">
                   <label for="username" class="form-label">Username</label>
@@ -106,6 +107,7 @@
                     name="username"
                     placeholder="Masukan username anda"
                     autofocus
+                    required
                   />
                 </div>
                 <div class="mb-3 form-password-toggle">
@@ -118,6 +120,7 @@
                       name="password"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"
+                      required
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
@@ -128,7 +131,7 @@
 
               <p class="text-center">
                 <span>Sudah memiliki akun?</span>
-                <a href="">
+                <a href="{{ route('loginadmin') }}">
                   <span>Masuk</span>
                 </a>
               </p>

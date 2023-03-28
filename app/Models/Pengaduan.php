@@ -10,7 +10,7 @@ class Pengaduan extends Model
     use HasFactory;
     protected $table = 'pengaduans';
     public $primarykey = 'id_pengaduan';
-    protected $fillable = ['tgl_pengaduan','nik','isi_laporan','foto','status'];
+    protected $fillable = ['id_pengaduan','tgl_pengaduan','nik','isi_laporan','foto','status'];
 
     public function tanggapan(){
         return $this->hasOne(Tanggapan::class, 'id_pengaduan');

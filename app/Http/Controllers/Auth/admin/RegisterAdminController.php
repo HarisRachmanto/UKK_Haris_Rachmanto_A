@@ -21,13 +21,12 @@ class RegisterAdminController extends Controller
             'username' => 'required',
             'password' => 'required',
             'telp' => 'required',
-            'level' => 'required'
         ]);
 
-        $validate['password'] = Hash::make($validate['password']);
         $validate['level'] = 'admin';
+        $validate['password'] = Hash::make($validate['password']);
 
         Petugas::create($validate);
-        return redirect()->route('registeradmin')->with('sukses registrasi', 'Berhasil daftar akun anda! Silahkan Login');
+        return redirect()->route('loginadmin')->with('sukses registrasi', 'Berhasil daftar akun anda! Silahkan Login');
     }
 }

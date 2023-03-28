@@ -96,7 +96,7 @@
                     @endif
                     @if (session()->has('salah password'))
                         <div class="alert alert-danger alert-dismissible" role="alert">
-                            {{ session('error') }}
+                            {{ session('salah password') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                             </button>
                         </div>

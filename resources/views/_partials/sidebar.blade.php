@@ -30,7 +30,7 @@
             </a>
         </li>
         <li class="menu-item">
-            <a href="" class="menu-link">
+            <a href="{{ route('loginadmin.logout') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-power-off"></i>
                 <div>Logout</div>
             </a>

@@ -2,10 +2,13 @@
 
 use App\Http\Controllers\admin\MasyarakatDashboardController;
 use App\Http\Controllers\admin\PengaduanDashboardController;
+use App\Http\Controllers\admin\TanggapanDashboardController;
+use App\Http\Controllers\Auth\admin\LoginAdminController;
 use App\Http\Controllers\Auth\admin\RegisterAdminController;
 use App\Http\Controllers\Auth\masyarakat\LoginMasyarakatController;
 use App\Http\Controllers\Auth\masyarakat\RegisterMasyarakatController;
 use App\Http\Controllers\masyarakat\LaporanController;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,10 +36,21 @@ Route::get('laporan', [LaporanController::class, 'index'])->name('laporan');
 Route::post('laporana', [LaporanController::class, 'store'])->name('laporan.store');
 Route::get('laporanmasyarakat', [LaporanController::class, 'tanggapanlaporanmasyarakat'])->name('laporanmasyarakat');
 
-Route::get('registeradmin', [RegisterAdminController::class, 'index'])->name('registermasyarakat');
+// register dan login admin
+Route::get('registeradmin', [RegisterAdminController::class, 'index'])->name('registeradmin');
 Route::post('registeradmina', [RegisterAdminController::class, 'store'])->name('registeradmin.store');
+Route::get('loginadmin', [LoginAdminController::class, 'index'])->name('loginadmin');
+Route::post('loginadmina', [LoginAdminController::class, 'store'])->name('loginadmin.store');
+Route::get('loginadmin/logout', [LoginAdminController::class, 'logout'])->name('loginadmin.logout');
 
 //dashboard Admin
 Route::get('dashboardmasyarakat', [MasyarakatDashboardController::class, 'index'])->name('dashboardmasyarakat');
+Route::delete('dashboardmasyarakat/delete/{id_pengaduan}', [MasyarakatDashboardController::class, 'destroy'])->name('dashboardmasyarakat.delete');
 
 Route::get('dashboardpengaduan', [PengaduanDashboardController::class, 'index'])->name('dashboardpengaduan');
+Route::get('dashboardpengaduan/cetak/{id_pengaduan}', [PengaduanDashboardController::class, 'index'])->name('cetak');
+Route::get('dashboardpengaduan/delete/{id_pengaduan}', [PengaduanDashboardController::class, 'destroy'])->name('dashboardpengaduan.delete');
+
+
+Route::get('tanggapandashboard/{id_pengaduan}', [TanggapanDashboardController::class, 'index'])->name('tanggapandashboard');
+Route::post('tanggapandashboard/{id_pengaduan}', [TanggapanDashboardController::class, 'store'])->name('tanggapandashboard.store');
