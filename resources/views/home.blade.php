@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="{{ asset('assets/landing_page/vendors/mdi/css/materialdesignicons.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/landing_page/vendors/aos/css/aos.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/landing_page/css/style.min.css') }}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 <body id="body" data-spy="scroll" data-target=".navbar" data-offset="100">
   <header id="header-section">
@@ -80,11 +81,31 @@
             <div class="features-width">
               <img src="{{ asset('assets/landing_page/images/Group5.svg') }}" alt="" class="img-icons">
               <h5 class="py-3">Selesai</h5>
-              <p class="text-muted">tunggu tanggapan pada menu daftar laporan</p>
+              <p class="text-muted">tunggu tanggapan pada menu Laporan anda</p>
             </div>
           </div>
         </div>
       </section>
+      {{-- <section class="customer-feedback" id="feedback-section">
+        <div class="row">
+          <div class="col-12 text-center pb-5">
+            <h2>Daftar Pengaduan Masyarakat</h2>
+          </div>
+          <div class="owl-carousel owl-theme grid-margin">
+              <div class="card customer-cards">
+                <div class="card-body">
+                  <div class="text-center">
+                    <img src="images/face2.jpg" width="89" height="89" alt="" class="img-customer">
+                    <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
+                    <div class="content-divider m-auto"></div>
+                    <h6 class="card-title pt-3">Tony Martinez</h6>
+                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </section> --}}
     </div>
   </div>
   <script src="{{ asset('assets/landing_page/vendors/jquery/jquery.min.js') }}"></script>

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\masyarakat;
 
 use App\Http\Controllers\Controller;
+use App\Models\Masyarakat;
 use App\Models\Pengaduan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class LaporanController extends Controller
 {
@@ -13,26 +16,35 @@ class LaporanController extends Controller
         return view('masyarakat.index');
     }
 
-    public function tanggapanlaporanmasyarakat()
+    public function indexPrivate()
     {
-        $data = Pengaduan::latest()->get();
-        return view('masyarakat.tanggapan', compact('data'));
+        $pengaduans = pengaduan::where('nama', Auth::guard('masyarakat')->user()->nama)->latest()->get();
+
+        return view('masyarakat.tanggapan', compact('pengaduans'));
     }
+
+    public function indexPublic()
+    {
+        // $pengaduans = Pengaduan::join('masyarakats', 'pengaduans.nik', '=', 'masyarakats.nik')->get(['masyarakats.nama','pengaduans.nik']);
+        $pengaduans = Pengaduan::where( 'akses','=' ,'public')->latest()->with('getDataMasyarakat', 'getDataTanggapan')->get();
+        return view('masyarakat.public', compact('pengaduans'));
+    }
+
+
 
     public function store(Request $request)
     {
         $validate = $request->all();
         $validate = $request->validate([
-            'tgl_pengaduan' => 'required',
+            'akses' => 'required',
+            'nama' => 'required',
             'nik' => 'required',
             'isi_laporan' => 'required',
             'foto' => 'required',
             'status' => ''
         ]);
-        if($request->file('foto')){
-            $validate['foto'] = $request->file('foto')->store('pengaduan-img');
-        }
-
+        $image = $request->file('foto')->store('pengaduan-img');
+        $validate['foto'] = $image;
 
         Pengaduan::create($validate);
         return redirect()->route('laporan')->with('sukses', 'Berhasil mengirim laporan');

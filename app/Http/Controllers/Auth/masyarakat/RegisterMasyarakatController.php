@@ -11,7 +11,8 @@ class RegisterMasyarakatController extends Controller
 {
     public function index()
     {
-        return view('auth.masyarakat.registermasyarakat');
+        $data = Masyarakat::get();
+        return view('auth.masyarakat.registermasyarakat', compact('data'));
     }
 
     public function store(Request $request)

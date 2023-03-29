@@ -105,14 +105,20 @@
                     </li>
                     <li>
                       <a class="dropdown-item" href="{{ route('laporan') }}">
-                        <i class="bx bx-cog me-2"></i>
-                        <span class="align-middle">Laporan</span>
+                        <i class="bx bx-message me-2"></i>
+                        <span class="align-middle">Kirim Laporan</span>
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="{{ route('laporanmasyarakat') }}">
-                        <i class="bx bx-cog me-2"></i>
-                        <span class="align-middle">Tanggapan</span>
+                      <a class="dropdown-item" href="{{ route('laporanprivate') }}">
+                        <i class="bx bx-message-error me-2"></i>
+                        <span class="align-middle">Laporan Anda</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{{ route('laporanpublic') }}">
+                        <i class="bx bx-chat me-2"></i>
+                        <span class="align-middle">Laporan Masyarakat</span>
                       </a>
                     </li>
                     <li>

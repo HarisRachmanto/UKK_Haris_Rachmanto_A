@@ -1,15 +1,16 @@
 @extends('_partials.navbar')
 @section('content')
 <div class="card">
-    <h5 class="card-header">Daftar Pengaduan anda</h5>
+    <h5 class="card-header">Daftar Pengaduan Masyarakat</h5>
     <div class="card-body">
         <div class="text-nowrap">
             <table class="table table-bordered">
                 <thead>
                     <tr>
                       <th>No</th>
+                      <th>Nama</th>
                       <th>Laporan</th>
-                      <th>Akses</th>
+                      <th>akses</th>
                       <th>Foto</th>
                       <th>Tanggapan</th>
                     </tr>
@@ -18,6 +19,7 @@
                     @foreach ($pengaduans as $item)
                     <tr>
                       <th scope="row">{{ $loop->iteration }}</th>
+                      <td>{{ $item->nama }}</td>
                       <td>{{ $item->isi_laporan }}</td>
                       <td>{{ $item->akses }}</td>
                       <td>

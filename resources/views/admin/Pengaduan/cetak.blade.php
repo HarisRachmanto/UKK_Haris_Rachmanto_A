@@ -30,10 +30,11 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Tanggal Pengaduan</th>
+                    <th>Tanggal <br>Pengaduan</th>
                     <th>NIK</th>
                     <th>Isi Laporan</th>
                     <th>Foto</th>
+                    <th>Tanggal <br>Tanggapan</th>
                     <th>Tanggapan</th>
                 </tr>
               </thead>
@@ -53,6 +54,7 @@
                 src="{{ asset('img/ppnull.jpg') }}" alt="">
                 @endif
                  </td>
+              <td>{{ $item->tanggapan->tgl_tanggapan ?? '-' }}</td>
               <td>{{ $item->tanggapan->tanggapan ?? '-' }}</td>
             @endforeach
               </tbody>

@@ -22,11 +22,24 @@
                   autofocus
                 />
               </div>
-            <div class="mb-3">
-                <label for="html5-date-input" class="col col-form-label">Tanggal</label>
-                <div class="col">
-                  <input class="form-control" type="date" value="" id="html5-date-input" name="tgl_pengaduan"/>
-                </div>
+            <div class="mb-3 invisible">
+                <label for="nik" class="form-label" >nama</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nik"
+                  name="nama"
+                  value="{{ Auth::guard('masyarakat')->user()->nama }}"
+                  autofocus
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="nik" class="form-label">Akses</label>
+                <select name="akses" id="" class="form-control">
+                    <option value="public">Public</option>
+                    <option value="private">Private</option>
+                </select>
               </div>
               <div class="mb-3">
                 <label for="nik" class="form-label">Isi Laporan</label>
@@ -37,11 +50,12 @@
                   name="isi_laporan"
                   placeholder="Isi laporan"
                   autofocus
+                  required
                 />
               </div>
               <div class="mb-3">
                 <label for="formFile" class="form-label">Foto</label>
-                <input class="form-control" type="file" id="formFile" name="foto"/>
+                <input class="form-control" type="file" id="formFile" name="foto" required/>
               </div>
             <button class="btn btn-primary d-grid w-100" type="submit">Kirim</button>
           </form>

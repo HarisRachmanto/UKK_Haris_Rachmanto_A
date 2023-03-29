@@ -34,6 +34,8 @@ Route::get('loginmasyarakata', [LoginMasyarakatController::class, 'logout'])->na
 
 Route::get('laporan', [LaporanController::class, 'index'])->name('laporan');
 Route::post('laporana', [LaporanController::class, 'store'])->name('laporan.store');
+Route::get('laporan/private', [LaporanController::class, 'indexPrivate'])->name('laporanprivate');
+Route::get('laporan/public', [LaporanController::class, 'indexPublic'])->name('laporanpublic');
 Route::get('laporanmasyarakat', [LaporanController::class, 'tanggapanlaporanmasyarakat'])->name('laporanmasyarakat');
 
 // register dan login admin

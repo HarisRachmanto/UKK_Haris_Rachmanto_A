@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('pengaduans', function (Blueprint $table) {
             $table->id('id_pengaduan');
-            $table->date('tgl_pengaduan');
+            $table->enum('akses', ['public','private']);
             $table->char('nik');
+            $table->string('nama');
             $table->string('isi_laporan');
             $table->string('foto');
             $table->enum('status',['0','proses','selesai'])->default(0);
